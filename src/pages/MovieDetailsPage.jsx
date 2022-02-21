@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import {
-  NavLink,
   useParams,
   useRouteMatch,
   useLocation,
@@ -8,11 +7,15 @@ import {
   Switch,
 } from 'react-router-dom';
 
+import {
+  LinkButton,
+  RouteLink,
+} from '../components/MovieCard/MovieCard.styled';
+
 import * as moviesAPI from '../services/movies-api';
 import MovieCard from '../components/MovieCard/MovieCard';
 import CastCard from '../components/CastCard/CastCard';
 import ReviewCard from '../components/ReviewCard/ReviewCard';
-import styles from '../pages/MoviesPage';
 
 export default function MovieDetailsPage() {
   const { moviesId } = useParams();
@@ -30,31 +33,29 @@ export default function MovieDetailsPage() {
 
   return (
     <>
+      <LinkButton to={location?.state?.from ?? '/'}>Go back</LinkButton>
       {movie && (
-        <>
+        <div>
           <MovieCard movie={movie} />
-
-          <NavLink
-            className={styles.link}
-            activeClassName={styles.activeLink}
+          <hr />
+          <h4>Additional information</h4>
+          <RouteLink
             to={{
               pathname: `${url}/cast`,
               state: { ...location.state },
             }}
           >
             Cast
-          </NavLink>
-          <NavLink
-            className={styles.link}
-            activeClassName={styles.activeLink}
+          </RouteLink>
+          <RouteLink
             to={{
               pathname: `${url}/reviews`,
               state: { ...location.state },
             }}
           >
             Reviews
-          </NavLink>
-        </>
+          </RouteLink>
+        </div>
       )}
 
       <hr />

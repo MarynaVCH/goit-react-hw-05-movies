@@ -17,7 +17,7 @@ export default function App() {
         </Route>
 
         <Route path="/movies" exact>
-          {/* <MoviesPage /> */}
+          <MoviesPage />
         </Route>
 
         <Route path="/movies/:moviesId">
