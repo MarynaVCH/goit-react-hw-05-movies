@@ -3,7 +3,6 @@ import AppBar from './components/AppBar/AppBar';
 import Container from './components/Container/Container';
 import HomePage from './pages/HomePage';
 import MoviesPage from './pages/MoviesPage';
-import NotFoundPage from './pages/NotFoundPage';
 import MovieDetailsPage from './pages/MovieDetailsPage';
 
 export default function App() {
