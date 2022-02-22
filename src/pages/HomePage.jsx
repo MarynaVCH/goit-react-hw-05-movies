@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-// import { Link, useLocation } from 'react-router-dom';
-// import { fetchTrendingMovies } from '../services/movies-api';
 import * as moviesAPI from '../services/movies-api';
 import Title from '../components/Title/Title';
 import MovieList from '../components/MovieList/MovieList';

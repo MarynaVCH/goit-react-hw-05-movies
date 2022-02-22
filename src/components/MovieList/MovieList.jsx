@@ -1,22 +1,28 @@
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-// import { FilmsItem, FilmsList } from './MovieList.styled';
+import { ListMovie, ImgMovie } from './MovieList.styled';
 import propTypes from 'prop-types';
 
 export default function MovieList({ movies }) {
   const location = useLocation();
   return (
-    <ul>
+    <ListMovie>
       {movies &&
-        movies.map(movie => {
-          return (
-            <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-                {movie.title}
-              </Link>
-            </li>
-          );
-        })}
-    </ul>
+        movies.map(movie => (
+          <Link
+            key={movie.id}
+            to={{
+              pathname: `/movies/${movie.id}`,
+              state: { from: location },
+            }}
+          >
+            <ImgMovie
+              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+              alt=""
+            />
+          </Link>
+        ))}
+    </ListMovie>
   );
 }
 

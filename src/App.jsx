@@ -23,10 +23,6 @@ export default function App() {
         <Route path="/movies/:moviesId">
           <MovieDetailsPage />
         </Route>
-
-        <Route>
-          <NotFoundPage />
-        </Route>
       </Switch>
     </Container>
   );
